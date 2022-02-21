@@ -1,0 +1,3 @@
+[submodule "MAVSDK-Proto"]
+	path = MAVSDK-Proto
+	url = git@github.com:mavlink/MAVSDK-Proto.git
