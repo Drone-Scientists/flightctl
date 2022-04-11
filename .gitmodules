@@ -1,3 +1,6 @@
-[submodule "MAVSDK-Proto"]
-	path = MAVSDK-Proto
-	url = git@github.com:mavlink/MAVSDK-Proto.git
+[submodule "MAVSDK-Rust"]
+	path = MAVSDK-Rust
+	url = git@github.com:mavlink/MAVSDK-Rust.git
+[submodule "mavsdk/MAVSDK"]
+	path = mavsdk/MAVSDK
+	url = git@github.com:mavlink/MAVSDK.git
