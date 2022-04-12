@@ -1,5 +1,6 @@
 use clap::{Arg, Command};
 use manager::Manager;
+mod manager;
 
 #[tokio::main]
 #[allow(unreachable_code)] // ignore loop code while TUI is implemented
@@ -48,7 +49,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 .map(|s| s.to_string())
                 .collect();
             let mut mgr: Manager = Manager::new();
-            mgr.add_targets(targets).await?;
+            // mgr.add_targets(targets).await?;
             loop {} // Placeholder for TUI Run code
                     // Placeholder for cleanup code / graceful exit
         }
@@ -59,8 +60,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 .map(|s| s.to_string())
                 .collect();
             let mut mgr: Manager = Manager::new();
-            mgr.add_targets(targets).await?;
-            mgr.get_info().await?;
+            // mgr.add_targets(targets).await?;
+            // mgr.get_info().await?;
         }
         Some(("echo", _)) => {
             println!("Hello World!");

@@ -2,7 +2,7 @@
 #include <chrono>
 #include <iostream>
 #include "../include/shim.h"
-#include "mavsdk/src/lib.rs.h"
+#include "flightctl/src/lib.rs.h"
 
 namespace mavsdk {
 

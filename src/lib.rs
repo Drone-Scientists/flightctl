@@ -1,3 +1,6 @@
+use cxx::SharedPtr;
+use std::pin::Pin;
+
 #[cfg(test)]
 mod tests {
     #[test]
@@ -19,8 +22,8 @@ pub mod ffi {
     }
 
     unsafe extern "C++" {
-        include!("mavsdk/include/shim.h");
-        include!("mavsdk/include/helper.h");
+        include!("flightctl/include/shim.h");
+        include!("flightctl/include/helper.h");
 
         // MAVSDK Core Types
         pub type Mavsdk;

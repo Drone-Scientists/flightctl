@@ -2,8 +2,8 @@
 // Houses Helper functions to assist with c++ specific functionality
 //
 
-#ifndef FLIGHTCTL_MAVSDK_INCLUDE_HELPER_H_
-#define FLIGHTCTL_MAVSDK_INCLUDE_HELPER_H_
+#ifndef FLIGHTCTL_INCLUDE_HELPER_H_
+#define FLIGHTCTL_INCLUDE_HELPER_H_
 
 #include <memory>
 
@@ -18,4 +18,4 @@ std::shared_ptr<System> connect(Mavsdk &sdk, rust::String addr);
 
 }
 
-#endif //FLIGHTCTL_MAVSDK_INCLUDE_HELPER_H_
+#endif //FLIGHTCTL_INCLUDE_HELPER_H_
