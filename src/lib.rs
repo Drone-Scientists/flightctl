@@ -1,5 +1,4 @@
-use cxx::SharedPtr;
-use std::pin::Pin;
+use std::os::raw::c_char;
 
 #[cfg(test)]
 mod tests {
@@ -10,37 +9,23 @@ mod tests {
     }
 }
 
-#[cxx::bridge(namespace = "mavsdk")]
-pub mod ffi {
+#[repr(C)]
+pub struct MHandle {
+    _data: [u8; 0],
+    _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
+}
 
-    pub struct FMissionItem {
-        lat_deg: f64,
-        lon_deg: f64,
-        rel_alt_m: f32,
-        speed_m_s: f32,
-        is_fly_through: bool,
-    }
+#[repr(C)]
+pub struct SHandle {
+    _data: [u8; 0],
+    _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
+}
 
-    unsafe extern "C++" {
-        include!("flightctl/include/shim.h");
-        include!("flightctl/include/helper.h");
+extern "C" {
+    // shim wrappers
+    pub fn new_mavsdk() -> MHandle;
+    pub fn del_mavsdk(p: *mut MHandle);
 
-        // MAVSDK Core Types
-        pub type Mavsdk;
-        pub type System;
-        // MAVSDK Plugin Types
-        pub type Telemetry;
-
-        // Custom Types
-
-        // Shim Constructors
-        pub fn new_mavsdk() -> UniquePtr<Mavsdk>;
-        pub fn new_telemetry(sys: SharedPtr<System>) -> UniquePtr<Telemetry>;
-
-        // Function Mappings
-        pub fn health_all_ok(self: &Telemetry) -> bool;
-
-        // Helper Functions
-        pub fn connect(sdk: Pin<&mut Mavsdk>, addr: String) -> SharedPtr<System>;
-    }
+    // helper wrappers
+    pub fn connect(p: *mut MHandle, addr: *const c_char) -> SHandle;
 }

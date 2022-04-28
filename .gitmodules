@@ -1,6 +1,0 @@
-[submodule "MAVSDK-Rust"]
-	path = MAVSDK-Rust
-	url = git@github.com:mavlink/MAVSDK-Rust.git
-[submodule "mavsdk/MAVSDK"]
-	path = mavsdk/MAVSDK
-	url = git@github.com:mavlink/MAVSDK.git
