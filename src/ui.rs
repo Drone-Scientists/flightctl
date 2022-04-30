@@ -7,11 +7,18 @@ use tui::Frame;
 
 use crate::app::App;
 
-pub fn draw<B: Backend>(f: &mut Frame<B>, app: &mut App) {
+pub fn draw<B: Backend>(f: &mut Frame<B>, app: &App) {
     let chunks = Layout::default()
         .direction(Direction::Vertical)
         .margin(1)
-        .constraints([Constraint::Length(3), Constraint::Min(0)].as_ref())
+        .constraints(
+            [
+                Constraint::Length(1),
+                Constraint::Length(3),
+                Constraint::Min(0),
+            ]
+            .as_ref(),
+        )
         .split(f.size());
     let titles = ["Overview", "Vehicles", "Events"]
         .iter()
